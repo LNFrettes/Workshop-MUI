@@ -1,9 +1,13 @@
+import * as React from 'react';
 import Head from 'next/head'
-import { Grid, Button as ButtonMUI } from '@mui/material'
+import { Grid } from '@mui/material'
 import { useState } from 'react'
-import Button from '@/components/Button'
-import Icon from '@/components/Icon'
-import ModalWrapper from '@/components/ModalWrapper'
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+import NewScheduleUnit from '@/components/NewScheduleUnit';
+
 
 const initialState = {
   scheduleUsers: [],
@@ -21,12 +25,42 @@ const initialState = {
 }
 
 const initialStateModal = {
-  openModal: ``,
+  open: false,
+}
+
+const style = {
+  position: 'absolute' as 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: "70vw",
+  bgcolor: 'background.paper',
+  boxShadow: 24,
+  p: 4,
+};
+
+function BasicModal({open, onClose}: {open: boolean, onClose: () => void}) {
+  return (
+    <div>
+      
+      <Modal
+        open={open}
+        onClose={onClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+        <NewScheduleUnit onClose={onClose} />
+        </Box>
+      </Modal>
+    </div>
+  );
 }
 
 export default function Home() {
   const [state, setState] = useState(initialState)
   const [modalConfig, setModalConfig] = useState(initialStateModal)
+
   return (
     <>
       <Head>
@@ -36,25 +70,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Grid container minHeight='100vh' justifyContent='center' alignItems='center'>
-
-        {/* REEMPLAZAR ESTE MODAL Y BOTON UTILIZANDO COMPONENTES DE MATERIAL UI
-        ⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇*/}
-
-        <ModalWrapper
+        <Button onClick={() => setModalConfig({ open: true })}>Agredar unidad agenda</Button>
+        <BasicModal 
           {...state}
-          {...modalConfig}
-          onClose={() => setModalConfig({openModal: ``})}
-        />
-        <Button
-          padding="1em 2em"
-          textDecoration="underline"
-          width="16em"
-          onClick={() => setModalConfig({ openModal: `newScheduleUnit` })}
-        >
-          Agregar unidad agenda
-        </Button>
-
-        {/* ⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆ */}
+          {...modalConfig} 
+          onClose={() => setModalConfig({ open: false })}
+          />
+        
       </Grid>
     </>
   )
