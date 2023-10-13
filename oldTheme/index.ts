@@ -46,12 +46,10 @@ export interface ThemeBaseProps {
 
 type ThemeProps = { v1?: ThemeV1Props; v2?: ThemeV2Props }
 
-const selectorTheme = {
+const selectorTheme: Record<string, any> = {
   v1: ThemeV1,
   v2: ThemeV2,
 }
-
-const getTheme = (theme: Theme = {}, version = `v1`): ThemeProps =>
-  selectorTheme[version](theme)
+const getTheme = (theme: Theme = {}, version = `v1`): ThemeProps => selectorTheme[version](theme)
 
 export default getTheme

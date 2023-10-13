@@ -78,7 +78,7 @@ function getTheme(theme: ThemeProps = {}): ThemeProps {
     //    0: Green    1: Blue    2: Red     3: Yellow
     tags: [`#52C41A`, `#1890FF`, `#FF4D4F`, `#FAAD14`],
   }
-  const defaultColors = { red: redDefaultColors, blue: blueDefaultColors }
+  const defaultColors: Record<string, any> = { red: redDefaultColors, blue: blueDefaultColors }
   const colors = theme.colors || defaultColors[defaultThemeKey]
 
   //                  0,  1,  2,  3,  4,  5,  6,  7,  8

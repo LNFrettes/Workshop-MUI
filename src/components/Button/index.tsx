@@ -42,11 +42,17 @@ interface ButtonProps
   variant?: Variants
 }
 const hexToRgba = (hex: string, alpha = 1): string => {
-  const [r, g, b] = hex.match(/\w\w/g).map((x) => parseInt(x, 16))
-  return `rgba(${r},${g},${b},${alpha})`
+  if (hex) {
+    const [r, g, b] = hex.match(/\w\w/g)?.map((x) => parseInt(x, 16))
+    return `rgba(${r},${g},${b},${alpha})`
+  }
+  return ``
 }
 
-function getColorWithOpacity(value, theme): string | null {
+function getColorWithOpacity(
+  value: { split: (arg0: string) => [any, (null | undefined)?] },
+  theme: any,
+): string | null {
   if (!value) {
     return null
   }
@@ -104,11 +110,7 @@ const ButtonWrapper: FC<ButtonProps> = styled.button<ButtonProps>`
     })}
   
   ${({ withSmallShadow = false }) => `
-  ${
-    withSmallShadow
-      ? `box-shadow: 0 1px 4px 0 rgba(0,0,0,0.16) !important;`
-      : ``
-  }
+  ${withSmallShadow ? `box-shadow: 0 1px 4px 0 rgba(0,0,0,0.16) !important;` : ``}
   `}
   ${({ withShadow = false }) => `
   ${withShadow ? `box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3); !important;` : ``}

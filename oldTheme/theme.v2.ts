@@ -58,7 +58,7 @@ function getTheme(theme: ThemeProps = {}): ThemeProps {
     black: pallete.black.main,
   }
 
-  const defaultColors = { blue: blueDefaultColors }
+  const defaultColors: Record<string, any> = { blue: blueDefaultColors }
   const colors = theme.colors || defaultColors[defaultThemeKey]
 
   //                  0,  1,  2,  3,  4,  5,  6,  7,  8
@@ -78,7 +78,7 @@ function getTheme(theme: ThemeProps = {}): ThemeProps {
     `58px`, // 7
   ]
 
-  const fontWeights = {
+  const fontWeights: Record<string, any> = {
     light: 300,
     regular: 400,
     medium: 500,
