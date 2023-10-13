@@ -45,14 +45,12 @@ export default function Home() {
           {...modalConfig}
           onClose={() => setModalConfig({openModal: ``})}
         />
-        <Button
-          padding="1em 2em"
-          textDecoration="underline"
-          width="16em"
+        <ButtonMUI
+          variant="contained"      
           onClick={() => setModalConfig({ openModal: `newScheduleUnit` })}
         >
           Agregar unidad agenda
-        </Button>
+        </ButtonMUI>
 
         {/* ⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆ */}
       </Grid>
