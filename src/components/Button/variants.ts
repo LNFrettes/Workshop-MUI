@@ -30,21 +30,21 @@ type VariantsMap = { [name in Variants]: StyleProps }
 
 const variants = ({ fontSizes }: Theme, size = `default`): VariantsMap => {
   const handleSizeVariant = (isOutlined = false): StyleProps => {
-    const buttonSizes = {
+    const buttonSizes: Record<string, any> = {
       small: {
         paddingX: `${isOutlined ? 11 - 1 : 11}px`,
         paddingY: `${isOutlined ? 4 - 1 : 4}px`,
-        fontSize: `${fontSizes[1]}px`,
+        fontSize: `${fontSizes?.[1]}px`,
       },
       default: {
         paddingX: `${isOutlined ? 13 - 1 : 13}px`,
         paddingY: `${isOutlined ? 8 - 1 : 8}px`,
-        fontSize: `${fontSizes[1]}px`,
+        fontSize: `${fontSizes?.[1]}px`,
       },
       large: {
         paddingX: `${isOutlined ? 26 - 1 : 26}px`,
         paddingY: `${isOutlined ? 11 - 1 : 11}px`,
-        fontSize: `${fontSizes[2]}px`,
+        fontSize: `${fontSizes?.[2]}px`,
       },
     }
     return buttonSizes[size]

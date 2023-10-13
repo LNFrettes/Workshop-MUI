@@ -58,11 +58,17 @@ export const setProperty = (
   return `${property}: ${value} ${isImportant ? `!important;` : ``}`
 }
 const hexToRgba = (hex: string, alpha = 1): string => {
-  const [r, g, b] = hex.match(/\w\w/g).map((x) => parseInt(x, 16))
-  return `rgba(${r},${g},${b},${alpha})`
+  if (hex) {
+    const [r, g, b] = hex.match(/\w\w/g)?.map((x) => parseInt(x, 16)) || []
+    return `rgba(${r},${g},${b},${alpha})`
+  }
+  return ``
 }
 
-function getColorWithOpacity(value, theme): string | null {
+function getColorWithOpacity(
+  value: { split: (arg0: string) => [any, (null | undefined)?] },
+  theme: any,
+): string | null {
   if (!value) {
     return null
   }

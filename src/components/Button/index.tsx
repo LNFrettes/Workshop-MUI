@@ -2,6 +2,7 @@ import { FC } from 'react'
 import styled from 'styled-components'
 import buttonVariants, { Variants } from './variants'
 import get from 'lodash/get'
+import Icon, { IconsOptions } from '@/components/Icon';
 import {
   compose,
   space,
@@ -23,7 +24,6 @@ import {
   ColorProps,
   variant,
 } from 'styled-system'
-import Icon, { IconsOptions } from '../Icon'
 interface ButtonProps
   extends Omit<React.HtmlHTMLAttributes<HTMLButtonElement>, `color`>,
     BackgroundProps,
@@ -43,7 +43,7 @@ interface ButtonProps
 }
 const hexToRgba = (hex: string, alpha = 1): string => {
   if (hex) {
-    const [r, g, b] = hex.match(/\w\w/g)?.map((x) => parseInt(x, 16))
+    const [r, g, b] = hex.match(/\w\w/g)?.map((x) => parseInt(x, 16)) || []
     return `rgba(${r},${g},${b},${alpha})`
   }
   return ``
@@ -141,7 +141,7 @@ const Button: FC<Props> = ({
   disabled,
   onClick = () => null,
   icon = null,
-  variant = null,
+  variant,
   ...props
 }) => {
   const buttonVariant = disabled ? `disabled` : variant
@@ -152,7 +152,6 @@ const Button: FC<Props> = ({
     <ButtonWrapper
       {...props}
       {...aditionalProps}
-      icon={icon}
       variant={buttonVariant}
       onClick={disabled || isLoading ? undefined : onClick}
     >

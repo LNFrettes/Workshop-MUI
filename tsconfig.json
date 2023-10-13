@@ -29,7 +29,8 @@
     "**/*.tsx",
     "src/context/ThemeContext.js",
     "src/components/NewScheduleUnit.jsx",
-    "src/components/Input.js"
+    "src/components/Input.js",
+    "src/components/ModalWrapper.jsx"
   ],
   "exclude": [
     "node_modules"
