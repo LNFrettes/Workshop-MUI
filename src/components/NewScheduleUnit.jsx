@@ -4,6 +4,8 @@ import Button from './Button'
 import Container from './Container'
 import Input from './Input'
 
+import {  Grid ,Button as ButtonMUI } from '@mui/material'
+
 
 const NewScheduleUnit = ({ onClose }) => {
 
@@ -26,27 +28,19 @@ const NewScheduleUnit = ({ onClose }) => {
         marginTop={5}
         marginBottom={3}
       >
-        <Button
-          backgroundColor="transparent"
-          color="gray.3"
-          width="20%"
-          textDecoration="underline"
-          padding="1em 2em"
-          border="5em"
-          margin="0 1em"
+        <ButtonMUI
+          variant="contained"
           onClick={onClose}
-          fontSize="2"
+          
         >
           Cancelar
-        </Button>
-        <Button
-          width="20%"
-          textDecoration="underline"
-          padding="1em 2em"
-          border="5em"
+        </ButtonMUI>
+        <ButtonMUI
+          sx={{ marginLeft: "15px" }}
+          variant="contained"
         >
           Guardar cambios
-        </Button>
+        </ButtonMUI>
       </Container>
     </>
   )
