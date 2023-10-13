@@ -1,8 +1,6 @@
 import Head from 'next/head'
 import { Grid, Button as ButtonMUI } from '@mui/material'
 import { useState } from 'react'
-import Button from '@/components/Button'
-import Icon from '@/components/Icon'
 import ModalWrapper from '@/components/ModalWrapper'
 
 const initialState = {
@@ -45,14 +43,13 @@ export default function Home() {
           {...modalConfig}
           onClose={() => setModalConfig({openModal: ``})}
         />
-        <Button
-          padding="1em 2em"
-          textDecoration="underline"
-          width="16em"
+        <ButtonMUI
+          width="6"
+          variant="contained"
           onClick={() => setModalConfig({ openModal: `newScheduleUnit` })}
         >
           Agregar unidad agenda
-        </Button>
+        </ButtonMUI>
 
         {/* ⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆ */}
       </Grid>

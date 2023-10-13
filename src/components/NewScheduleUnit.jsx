@@ -1,7 +1,5 @@
-import { useState, useEffect } from 'react'
-import { message } from 'antd'
-import Button from './Button'
-import Container from './Container'
+
+import { Grid, Button as ButtonMUI } from '@mui/material'
 import Input from './Input'
 
 
@@ -9,7 +7,7 @@ const NewScheduleUnit = ({ onClose }) => {
 
   return (
     <>
-      <Container alignItems="center" width="100%" marginY={3}>
+      <Grid alignItems="center" width="100%" marginY={3}>
         <Input
           label="Nombre unidad:"
           width="100%"
@@ -19,35 +17,33 @@ const NewScheduleUnit = ({ onClose }) => {
           label="Seleccione división:"
           width="100%"
         />
-      </Container>
-      <Container
-        alignItems="center"
+      </Grid>
+      <Grid 
+        container
+        alignItems="right"
         justifyContent="flex-end"
         marginTop={5}
         marginBottom={3}
       >
-        <Button
+        <ButtonMUI
           backgroundColor="transparent"
-          color="gray.3"
-          width="20%"
-          textDecoration="underline"
-          padding="1em 2em"
-          border="5em"
-          margin="0 1em"
+          width="2"
+          padding={2}
+          variant="outlined"
           onClick={onClose}
-          fontSize="2"
         >
           Cancelar
-        </Button>
-        <Button
-          width="20%"
-          textDecoration="underline"
-          padding="1em 2em"
-          border="5em"
+        </ButtonMUI>
+        <ButtonMUI
+          width={2}
+          marginRight={2}
+          variant="contained"
+          padding={2}
+          border={2}
         >
           Guardar cambios
-        </Button>
-      </Container>
+        </ButtonMUI>
+      </Grid>
     </>
   )
 }
