@@ -17,7 +17,7 @@ import {
 } from 'styled-system'
 import { ModalProps } from 'antd/es/modal'
 import { Modal as AntdModal } from 'antd'
-import { Grid, Button as ButtonMUI } from '@mui/material'
+import { Modal as MuiModal } from '@mui/material'
 import Button from './Button'
 import Icon from './Icon'
 
@@ -106,7 +106,7 @@ const ModalWrapper: FC<Props> = ({
   const [isExpanded, setIsExpanded] = useState(true)
   return isVisible ? (
     <>
-      <Modal
+      <MuiModal
         open
         onCancel={onClose}
         title={title}
@@ -126,7 +126,7 @@ const ModalWrapper: FC<Props> = ({
             onClick={() => setIsExpanded(false)}
           />
         )}
-      </Modal>
+      </MuiModal>
       {!isExpanded && (
         <>
           <HideModal />
