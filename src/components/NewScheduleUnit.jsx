@@ -1,34 +1,31 @@
-import { useState, useEffect } from 'react'
-import { message } from 'antd'
-import Button from './Button'
-import Container from './Container'
-import Input from './Input'
+import { Button, Container, Stack, TextField } from "@mui/material"
 
 
 const NewScheduleUnit = ({ onClose }) => {
 
   return (
-    <>
-      <Container alignItems="center" width="100%" marginY={3}>
-        <Input
+    <Stack gap={2} p={5}>
+      <Stack alignItems="center" width="100%" marginY={3} gap={5}>
+        <TextField
           label="Nombre unidad:"
-          width="100%"
           marginBottom={3}
+          fullWidth
         />
-        <Input
+        <TextField
           label="Seleccione división:"
-          width="100%"
+          fullWidth
         />
-      </Container>
-      <Container
+      </Stack>
+      <Stack
         alignItems="center"
         justifyContent="flex-end"
         marginTop={5}
         marginBottom={3}
+        direction="row"
+        gap={2}
       >
         <Button
           backgroundColor="transparent"
-          color="gray.3"
           width="20%"
           textDecoration="underline"
           padding="1em 2em"
@@ -44,11 +41,13 @@ const NewScheduleUnit = ({ onClose }) => {
           textDecoration="underline"
           padding="1em 2em"
           border="5em"
+          variant="contained"
+          color="secondary"
         >
           Guardar cambios
         </Button>
-      </Container>
-    </>
+      </Stack>
+    </Stack>
   )
 }
 
