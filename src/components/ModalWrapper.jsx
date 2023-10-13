@@ -1,13 +1,13 @@
 
 
-import Modal from './Modal'
+import {  Grid, Modal, Typography } from '@mui/material'
 import NewScheduleUnit from './NewScheduleUnit'
 
 function ModalWrapper({ openModal, onClose, ...props }) {
   switch (openModal) {
     case `newScheduleUnit`:
       return (
-        <Modal isVisible onClose={onClose} title="Agregar unidad agenda">
+        <Modal open onClose={onClose} >
           <NewScheduleUnit onClose={onClose} />
         </Modal>
       )

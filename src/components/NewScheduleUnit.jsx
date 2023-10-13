@@ -1,54 +1,60 @@
-import { useState, useEffect } from 'react'
-import { message } from 'antd'
-import Button from './Button'
-import Container from './Container'
-import Input from './Input'
+
+import { Button, Grid, TextField, Typography } from '@mui/material'
 
 
 const NewScheduleUnit = ({ onClose }) => {
 
   return (
-    <>
-      <Container alignItems="center" width="100%" marginY={3}>
-        <Input
+    <Grid container
+    sx={{ position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          width: 800,
+          bgcolor: 'background.paper',
+          border: '2px solid #000',
+          boxShadow: 24,
+          p: 4,
+        }}
+  
+  >
+  
+          <Typography>
+            Nueva unidad de horario 
+          </Typography>
+ 
+      <Grid alignItems="center" width="100%" marginY={3}>
+
+        <TextField
           label="Nombre unidad:"
           width="100%"
           marginBottom={3}
         />
-        <Input
+        <TextField
           label="Seleccione división:"
           width="100%"
         />
-      </Container>
-      <Container
+      </Grid>
+      <Grid
         alignItems="center"
         justifyContent="flex-end"
         marginTop={5}
         marginBottom={3}
       >
         <Button
-          backgroundColor="transparent"
-          color="gray.3"
-          width="20%"
-          textDecoration="underline"
-          padding="1em 2em"
-          border="5em"
-          margin="0 1em"
+          variant='text'
           onClick={onClose}
-          fontSize="2"
-        >
+          >
           Cancelar
         </Button>
         <Button
-          width="20%"
-          textDecoration="underline"
-          padding="1em 2em"
-          border="5em"
+
+        variant="contained"
         >
           Guardar cambios
         </Button>
-      </Container>
-    </>
+      </Grid>
+    </Grid>
   )
 }
 
