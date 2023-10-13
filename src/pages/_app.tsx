@@ -7,9 +7,9 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     // Descomenta el codigo para aplicar el tema de Material UI
     <ThemeProvider>
-      {/*<ThemeConfig>*/}
+      <ThemeConfig>
         <Component {...pageProps} />
-      {/*</ThemeConfig>*/}
+      </ThemeConfig>
     </ThemeProvider>
   )
 }

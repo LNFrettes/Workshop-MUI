@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Button from '@/components/Button'
 import Icon from '@/components/Icon'
 import ModalWrapper from '@/components/ModalWrapper'
+import ModalNew from '@/components/ModalNew'
 
 const initialState = {
   scheduleUsers: [],
@@ -35,24 +36,16 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Grid container minHeight='100vh' justifyContent='center' alignItems='center'>
-
+      <Grid container minHeight="100vh" justifyContent="center" alignItems="center">
         {/* REEMPLAZAR ESTE MODAL Y BOTON UTILIZANDO COMPONENTES DE MATERIAL UI
         ⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇*/}
 
-        <ModalWrapper
+        {/* <ModalWrapper
           {...state}
           {...modalConfig}
           onClose={() => setModalConfig({openModal: ``})}
-        />
-        <Button
-          padding="1em 2em"
-          textDecoration="underline"
-          width="16em"
-          onClick={() => setModalConfig({ openModal: `newScheduleUnit` })}
-        >
-          Agregar unidad agenda
-        </Button>
+        /> */}
+        <ModalNew />
 
         {/* ⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆ */}
       </Grid>
